@@ -117,7 +117,6 @@
     const list = filter === "todos" ? VEHICULOS : VEHICULOS.filter((v) => v.categoria === filter);
     grid.innerHTML = list.map(vehicleCard).join("");
     emptyState.hidden = list.length !== 0;
-    initReveal();
   }
 
   filterBar.addEventListener("click", (e) => {
@@ -143,12 +142,13 @@
   });
 
   /* -------------------------------------------------------
-     Revelado suave al hacer scroll
+     Revelado suave al hacer scroll.
+     Solo en las fotografías de la historia: son fotos reales
+     "apareciendo", tiene sentido narrativo. La vitrina y los
+     beneficios se muestran de inmediato, sin puesta en escena.
      ------------------------------------------------------- */
   function initReveal() {
-    const targets = document.querySelectorAll(
-      ".vehicle-card:not(.reveal-bound), .benefit:not(.reveal-bound), .photo-print:not(.reveal-bound)"
-    );
+    const targets = document.querySelectorAll(".photo-print:not(.reveal-bound)");
     if (!("IntersectionObserver" in window)) return;
     const observer = new IntersectionObserver(
       (entries) => {
