@@ -1,171 +1,145 @@
 (function () {
   "use strict";
 
-  /* -------------------------------------------------------
-     Configuración de contacto
-     TODO: reemplazar por los datos reales del negocio.
-     Formato del teléfono para WhatsApp: solo números, con
-     código de país (56 = Chile), sin +, sin espacios.
-     ------------------------------------------------------- */
-  const CONFIG = {
-    whatsappNumber: "56900000000",
-    phoneDisplay: "+56 9 0000 0000",
+  /* ---------------------------------------------------------------
+     Datos de contacto.
+     TODO: reemplazar por los reales antes de difundir el sitio.
+     El número de WhatsApp va sin +, sin espacios y con código de
+     país (56 = Chile).
+     --------------------------------------------------------------- */
+  const CONTACTO = {
+    whatsapp: "56900000000",
+    telefono: "+56 9 0000 0000",
   };
 
-  const waLink = (text) =>
-    "https://wa.me/" + CONFIG.whatsappNumber + "?text=" + encodeURIComponent(text);
+  const wa = (texto) =>
+    "https://wa.me/" + CONTACTO.whatsapp + "?text=" + encodeURIComponent(texto);
 
-  document.getElementById("phoneDisplay").textContent = CONFIG.phoneDisplay;
-  document.getElementById("footerPhone").textContent = CONFIG.phoneDisplay;
+  const $ = (sel) => document.querySelector(sel);
 
-  const callLink = document.getElementById("callLink");
-  if (callLink) callLink.href = "tel:" + CONFIG.whatsappNumber;
+  /* ------------------------------------------------ datos de contacto -- */
+  $("#fono").textContent = CONTACTO.telefono;
+  $("#fono-foot").textContent = CONTACTO.telefono;
+  $("#llamar").href = "tel:+" + CONTACTO.whatsapp;
+  $("#anio").textContent = new Date().getFullYear();
 
-  document.querySelectorAll("[data-whatsapp-generic]").forEach((el) => {
-    el.href = waLink("Hola ROCAR, quisiera más información.");
+  document.querySelectorAll("[data-wa]").forEach((a) => {
+    a.href = wa("Hola ROCAR, quisiera más información.");
   });
 
-  const headerWa = document.getElementById("headerWhatsapp");
-  if (headerWa) headerWa.href = waLink("Hola ROCAR, quisiera más información.");
+  /* --------------------------------------------------- barra superior -- */
+  const topbar = $("#topbar");
+  const nav = $("#nav");
+  const burger = $("#burger");
 
-  /* -------------------------------------------------------
-     Año en el footer
-     ------------------------------------------------------- */
-  document.getElementById("year").textContent = new Date().getFullYear();
+  const syncBar = () => topbar.classList.toggle("is-solid", window.scrollY > 40);
+  syncBar();
+  addEventListener("scroll", syncBar, { passive: true });
 
-  /* -------------------------------------------------------
-     Menú móvil
-     ------------------------------------------------------- */
-  const navToggle = document.getElementById("navToggle");
-  const mainNav = document.getElementById("mainNav");
-
-  navToggle.addEventListener("click", () => {
-    const isOpen = mainNav.classList.toggle("is-open");
-    navToggle.setAttribute("aria-expanded", String(isOpen));
-    navToggle.setAttribute("aria-label", isOpen ? "Cerrar menú" : "Abrir menú");
+  burger.addEventListener("click", () => {
+    const abierto = nav.classList.toggle("is-open");
+    burger.setAttribute("aria-expanded", String(abierto));
+    burger.setAttribute("aria-label", abierto ? "Cerrar menú" : "Abrir menú");
+    if (abierto) topbar.classList.add("is-solid");
+    else syncBar();
   });
 
-  mainNav.querySelectorAll("a").forEach((link) => {
-    link.addEventListener("click", () => {
-      mainNav.classList.remove("is-open");
-      navToggle.setAttribute("aria-expanded", "false");
-    });
-  });
+  nav.querySelectorAll("a").forEach((a) =>
+    a.addEventListener("click", () => {
+      nav.classList.remove("is-open");
+      burger.setAttribute("aria-expanded", "false");
+    })
+  );
 
-  /* -------------------------------------------------------
-     Íconos de vehículo (línea, estilo plano) por categoría
-     ------------------------------------------------------- */
-  const ICONS = {
-    sedan: `<svg viewBox="0 0 120 60" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"><path d="M6 42c0-4 3-7 7-8l14-14c4-4 9-6 15-6h20c6 0 11 2 15 6l12 12c6 1 11 4 12 8" /><path d="M4 42h112" /><path d="M4 42v4a4 4 0 0 0 4 4h6" /><path d="M106 50h6a4 4 0 0 0 4-4v-4" /><path d="M27 20h58" /><circle cx="30" cy="50" r="8"/><circle cx="90" cy="50" r="8"/></svg>`,
-    suv: `<svg viewBox="0 0 120 60" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"><path d="M8 40c0-5 3-9 8-10l10-16c3-5 9-8 15-8h18c6 0 12 3 15 8l9 15c8 1 13 5 13 11" /><path d="M4 40h112" /><path d="M4 40v4a4 4 0 0 0 4 4h6" /><path d="M106 48h6a4 4 0 0 0 4-4v-4" /><path d="M25 22c4-4 9 -4 9-4" /><path d="M32 12h34" /><path d="M28 26h62" /><circle cx="30" cy="48" r="8"/><circle cx="90" cy="48" r="8"/></svg>`,
-    camioneta: `<svg viewBox="0 0 120 60" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"><path d="M4 44V26h48c5 0 10 2 13 6l9 10" /><path d="M4 44h108" /><path d="M74 44V16h20c5 0 9 2 12 6l6 8v14" /><path d="M4 44v2a4 4 0 0 0 4 4h6" /><path d="M104 50h8a4 4 0 0 0 4-4v-2" /><path d="M52 26v-6h14v6" /><circle cx="26" cy="50" r="8"/><circle cx="92" cy="50" r="8"/></svg>`,
-    hatchback: `<svg viewBox="0 0 120 60" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"><path d="M8 42c0-4 3-7 7-8l12-14c3-4 8-6 13-6h14c5 0 9 2 12 5l14 15c6 1 10 4 11 8" /><path d="M4 42h112" /><path d="M4 42v4a4 4 0 0 0 4 4h6" /><path d="M106 50h6a4 4 0 0 0 4-4v-4" /><path d="M27 20h30" /><circle cx="30" cy="50" r="8"/><circle cx="90" cy="50" r="8"/></svg>`,
-  };
-
-  const CATEGORY_LABEL = {
+  /* ------------------------------------------------------------ vitrina */
+  const TIPO = {
     sedan: "Sedán",
     suv: "SUV",
     camioneta: "Camioneta",
     hatchback: "Hatchback",
   };
 
-  const currency = new Intl.NumberFormat("es-CL", {
-    style: "currency",
-    currency: "CLP",
-    maximumFractionDigits: 0,
+  /* Siluetas de reemplazo mientras no haya foto del vehículo.
+     Van muy tenues: señalan el tipo sin fingir que son una foto. */
+  const SILUETA = {
+    sedan: `<path d="M8 58v-7c0-4 3-8 7-9l31-6 19-14c5-4 10-6 16-6h33c6 0 12 3 16 7l14 13 29 6c5 1 9 5 9 10v6z"/>`,
+    suv: `<path d="M8 58v-9c0-5 3-9 8-10l10-16c3-5 9-8 15-8h47c6 0 12 3 15 8l10 16 30 6c5 1 9 5 9 10v3z"/>`,
+    camioneta: `<path d="M6 58V34h56c5 0 10 2 13 6l10 12h13V20h29c6 0 11 3 14 8l11 17v13z"/>`,
+    hatchback: `<path d="M8 58v-7c0-4 3-8 7-9l30-6 18-14c5-4 10-6 16-6h30c5 0 10 2 13 6l20 22 26 5c5 1 8 5 8 9z"/>`,
+  };
+
+  const marco = (tipo) => `
+    <svg viewBox="0 0 200 76" fill="currentColor" aria-hidden="true">
+      ${SILUETA[tipo] || SILUETA.sedan}
+      <circle cx="54" cy="59" r="12"/><circle cx="150" cy="59" r="12"/>
+    </svg>`;
+
+  const flecha = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M5 12h13M13 6l6 6-6 6"/></svg>`;
+
+  const pesos = new Intl.NumberFormat("es-CL", {
+    style: "currency", currency: "CLP", maximumFractionDigits: 0,
   });
+  const miles = new Intl.NumberFormat("es-CL");
 
-  const km = new Intl.NumberFormat("es-CL");
+  function tarjeta(v) {
+    const consulta =
+      `Hola ROCAR, me interesa el ${v.marca} ${v.modelo} ${v.anio} ` +
+      `que vi en el sitio. ¿Sigue disponible?`;
 
-  /* -------------------------------------------------------
-     Render de vitrina de vehículos
-     ------------------------------------------------------- */
-  const grid = document.getElementById("vehicleGrid");
-  const emptyState = document.getElementById("emptyState");
-  const filterBar = document.getElementById("filterBar");
-
-  function vehicleCard(v) {
-    const message =
-      "Hola ROCAR, me interesa el " +
-      v.marca + " " + v.modelo + " " + v.anio +
-      " que vi en el sitio. ¿Sigue disponible?";
+    const media = v.foto
+      ? `<img src="${v.foto}" alt="${v.marca} ${v.modelo} ${v.anio}" loading="lazy">`
+      : marco(v.categoria);
 
     return `
-      <article class="vehicle-card" data-categoria="${v.categoria}">
-        <div class="vehicle-media">
-          ${v.destacado ? '<span class="badge-destacado">Destacado</span>' : ""}
-          ${ICONS[v.categoria] || ICONS.sedan}
+      <article class="card">
+        <div class="card-media">
+          ${v.destacado ? '<span class="tag">Destacado</span>' : ""}
+          ${media}
         </div>
-        <div class="vehicle-body">
-          <div>
-            <h3 class="vehicle-name">${v.marca} ${v.modelo}</h3>
-            <p class="vehicle-year">${v.anio} · ${CATEGORY_LABEL[v.categoria] || ""}</p>
-          </div>
-          <div class="spec-chips">
-            <span class="spec-chip">${km.format(v.km)} km</span>
-            <span class="spec-chip">${v.transmision}</span>
-            <span class="spec-chip">${v.combustible}</span>
-          </div>
-          <p class="vehicle-price"><small>Precio</small>${currency.format(v.precio)}</p>
-          <a class="vehicle-cta" href="${waLink(message)}" target="_blank" rel="noopener">Consultar por WhatsApp</a>
+        <div class="card-body">
+          <p class="card-kind">${TIPO[v.categoria] || ""}</p>
+          <h3 class="card-name">${v.marca} ${v.modelo} <span>${v.anio}</span></h3>
+          <p class="specs">
+            <span>${miles.format(v.km)} km</span>
+            <span>${v.transmision}</span>
+            <span>${v.combustible}</span>
+          </p>
+          <p class="price">${pesos.format(v.precio)}</p>
+          <a class="card-cta" href="${wa(consulta)}" target="_blank" rel="noopener">
+            Consultar por WhatsApp ${flecha}
+          </a>
         </div>
-      </article>
-    `;
+      </article>`;
   }
 
-  function renderVehicles(filter) {
-    const list = filter === "todos" ? VEHICULOS : VEHICULOS.filter((v) => v.categoria === filter);
-    grid.innerHTML = list.map(vehicleCard).join("");
-    emptyState.hidden = list.length !== 0;
+  const grid = $("#grid");
+  const vacio = $("#empty");
+  const filtros = $("#filters");
+
+  function pintar(filtro) {
+    const lista =
+      filtro === "todos" ? VEHICULOS : VEHICULOS.filter((v) => v.categoria === filtro);
+    grid.innerHTML = lista.map(tarjeta).join("");
+    vacio.hidden = lista.length > 0;
   }
 
-  filterBar.addEventListener("click", (e) => {
-    const btn = e.target.closest(".filter-pill");
-    if (!btn) return;
-    filterBar.querySelectorAll(".filter-pill").forEach((p) => p.classList.remove("is-active"));
-    btn.classList.add("is-active");
-    renderVehicles(btn.dataset.filter);
+  filtros.addEventListener("click", (e) => {
+    const chip = e.target.closest(".chip");
+    if (!chip) return;
+    filtros.querySelectorAll(".chip").forEach((c) => c.classList.remove("is-on"));
+    chip.classList.add("is-on");
+    pintar(chip.dataset.filter);
   });
 
-  renderVehicles("todos");
+  pintar("todos");
 
-  /* -------------------------------------------------------
-     Formulario rápido -> WhatsApp
-     ------------------------------------------------------- */
-  const quickForm = document.getElementById("quickForm");
-  quickForm.addEventListener("submit", (e) => {
+  /* ---------------------------------------------- consulta -> WhatsApp -- */
+  $("#form").addEventListener("submit", (e) => {
     e.preventDefault();
-    const nombre = document.getElementById("qfNombre").value.trim();
-    const mensaje = document.getElementById("qfMensaje").value.trim();
-    const text = "Hola ROCAR, soy " + nombre + ". " + mensaje;
-    window.open(waLink(text), "_blank", "noopener");
+    const nombre = $("#f-nombre").value.trim();
+    const mensaje = $("#f-msg").value.trim();
+    window.open(wa(`Hola ROCAR, soy ${nombre}. ${mensaje}`), "_blank", "noopener");
   });
-
-  /* -------------------------------------------------------
-     Revelado suave al hacer scroll.
-     Solo en las fotografías de la historia: son fotos reales
-     "apareciendo", tiene sentido narrativo. La vitrina y los
-     beneficios se muestran de inmediato, sin puesta en escena.
-     ------------------------------------------------------- */
-  function initReveal() {
-    const targets = document.querySelectorAll(".photo-print:not(.reveal-bound)");
-    if (!("IntersectionObserver" in window)) return;
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("is-visible");
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.15 }
-    );
-    targets.forEach((el) => {
-      el.classList.add("reveal", "reveal-bound");
-      observer.observe(el);
-    });
-  }
-
-  initReveal();
 })();

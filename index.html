@@ -2,249 +2,278 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>ROCAR — Compraventa de Automóviles en Talca</title>
-<meta name="description" content="ROCAR, la compraventa de automóviles más antigua de Talca. Más de 40 años comprando y vendiendo vehículos con confianza. 1 Norte 1678, Talca." />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>ROCAR — Compraventa de automóviles en Talca desde 1986</title>
+<meta name="description" content="La compraventa de automóviles más antigua de Talca. Cuarenta años comprando y vendiendo autos en 1 Norte 1678. Mira los vehículos disponibles y escríbenos por WhatsApp." />
+<meta name="theme-color" content="#16201d" />
+
+<meta property="og:title" content="ROCAR — Compraventa de automóviles en Talca desde 1986" />
+<meta property="og:description" content="Cuarenta años comprando y vendiendo autos en Talca, en 1 Norte 1678." />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="images/rocar-3-1100.jpg" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders:wght@500;600;700;800&family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=DM+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
 <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
 
-<a class="skip-link" href="#main">Saltar al contenido</a>
+<a class="skip-link" href="#contenido">Saltar al contenido</a>
 
-<header class="site-header" id="siteHeader">
-  <div class="header-inner">
-    <a href="#top" class="brand">
-      <span class="brand-mark">ROCAR</span>
-      <span class="brand-sub">Compraventa de autos</span>
-    </a>
+<header class="topbar" id="topbar">
+  <div class="topbar-in">
+    <a href="#" class="logo">ROCAR</a>
 
-    <nav class="main-nav" id="mainNav">
+    <nav class="nav" id="nav" aria-label="Principal">
       <a href="#vehiculos">Vehículos</a>
-      <a href="#por-que">Por qué ROCAR</a>
+      <a href="#proceso">Cómo funciona</a>
       <a href="#historia">Historia</a>
-      <a href="#contacto">Ubicación y contacto</a>
+      <a href="#contacto">Visítanos</a>
     </nav>
 
-    <a class="btn btn-whatsapp header-cta" id="headerWhatsapp" href="#" target="_blank" rel="noopener">
-      <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M12.04 2c-5.5 0-9.96 4.46-9.96 9.96 0 1.98.58 3.83 1.58 5.38L2 22l4.8-1.57a9.9 9.9 0 0 0 5.24 1.5h.01c5.5 0 9.96-4.46 9.96-9.96C22 6.46 17.55 2 12.04 2zm5.85 14.1c-.25.7-1.45 1.34-2 1.43-.51.08-1.16.11-1.87-.12-.43-.13-.98-.31-1.69-.6-2.98-1.29-4.93-4.28-5.08-4.48-.15-.2-1.2-1.6-1.2-3.05 0-1.46.76-2.17 1.03-2.47.27-.3.6-.37.8-.37h.58c.19 0 .44-.07.68.53.25.6.85 2.08.92 2.23.08.15.13.33.02.53-.1.2-.16.32-.31.5-.15.18-.32.4-.46.53-.15.15-.31.31-.13.61.18.3.8 1.32 1.72 2.14 1.19 1.05 2.2 1.38 2.5 1.53.3.15.48.13.66-.06.18-.2.77-.9.98-1.21.2-.3.4-.25.68-.15.27.1 1.72.81 2.02.96.3.15.5.22.57.34.08.13.08.72-.17 1.42z"/></svg>
-      WhatsApp
-    </a>
+    <a class="btn btn-wa topbar-cta" data-wa target="_blank" rel="noopener">Escribir por WhatsApp</a>
 
-    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="mainNav" aria-label="Abrir menú">
+    <button class="burger" id="burger" aria-expanded="false" aria-controls="nav" aria-label="Abrir menú">
       <span></span><span></span><span></span>
     </button>
   </div>
 </header>
 
-<main id="main">
+<main id="contenido">
 
-  <!-- HERO -->
-  <section class="hero" id="top">
-    <div class="hero-inner">
-      <p class="eyebrow">1 Norte 1678 · Talca, Región del Maule</p>
+  <!-- ══ HERO: la fotografía del local, 1 Norte 1678 ══ -->
+  <section class="hero">
+    <div class="hero-media">
+      <img
+        src="images/rocar-3-1100.jpg"
+        srcset="images/rocar-3-1100.jpg 1100w, images/rocar-3-1900.jpg 1900w"
+        sizes="100vw"
+        width="1900" height="1317"
+        alt="El local de ROCAR en 1 Norte 1678: el letrero pintado a mano sobre la chapa, la reja verde con el cartel de compra y venta, y camionetas estacionadas en el patio."
+        fetchpriority="high" />
+      <p class="hero-note">1 Norte 1678, años noventa</p>
+    </div>
 
-      <div class="nameplate">
-        <h1 class="nameplate-text">ROCAR</h1>
-      </div>
-
+    <div class="hero-body">
+      <p class="hero-eyebrow">Talca · Región del Maule</p>
+      <h1 class="hero-title">El mismo patio,<br />desde 1986.</h1>
       <p class="hero-lede">
-        La compraventa de automóviles más antigua de Talca. Más de cuatro
-        décadas ayudando a comprar y vender vehículos con seriedad,
-        el mismo lugar de siempre.
+        Cuarenta años comprando y vendiendo autos en Talca. La compraventa
+        más antigua de la ciudad, en la misma dirección de siempre.
       </p>
-
       <div class="hero-actions">
-        <a href="#vehiculos" class="btn btn-primary">Ver vehículos disponibles</a>
-        <a href="#" class="btn btn-outline whatsapp-link" data-whatsapp-generic>Hablar por WhatsApp</a>
+        <a href="#vehiculos" class="btn btn-light">Ver vehículos disponibles</a>
+        <a class="btn btn-wa" data-wa target="_blank" rel="noopener">Escribir por WhatsApp</a>
       </div>
-
-      <dl class="stat-strip">
-        <div class="stat">
-          <dt>40+</dt>
-          <dd>años de trayectoria</dd>
-        </div>
-        <div class="stat">
-          <dt>1986</dt>
-          <dd>año de fundación</dd>
-        </div>
-        <div class="stat">
-          <dt>N.º&nbsp;1</dt>
-          <dd>la compraventa más antigua de Talca</dd>
-        </div>
-      </dl>
     </div>
   </section>
 
-  <!-- VEHÍCULOS -->
-  <section class="section" id="vehiculos">
-    <div class="section-inner">
-      <p class="eyebrow">Vitrina</p>
-      <h2 class="section-title">Vehículos disponibles</h2>
-      <p class="section-lede">
-        Este es nuestro inventario actual. Escríbenos por WhatsApp para
-        coordinar una visita, revisar documentación o consultar por
-        financiamiento.
-      </p>
+  <!-- ══ Ficha de registro del negocio ══ -->
+  <div class="record">
+    <dl class="record-in">
+      <div><dt>Fundación</dt><dd>1986</dd></div>
+      <div><dt>Fundador</dt><dd>Héctor Rodrigo Cáceres Cornejo</dd></div>
+      <div><dt>Dirección</dt><dd>1 Norte 1678, Talca</dd></div>
+      <div><dt>En el rubro</dt><dd>40 años</dd></div>
+    </dl>
+  </div>
 
-      <div class="filter-bar" id="filterBar" role="group" aria-label="Filtrar vehículos por tipo">
-        <button class="filter-pill is-active" data-filter="todos">Todos</button>
-        <button class="filter-pill" data-filter="sedan">Sedán</button>
-        <button class="filter-pill" data-filter="suv">SUV</button>
-        <button class="filter-pill" data-filter="camioneta">Camioneta</button>
-        <button class="filter-pill" data-filter="hatchback">Hatchback</button>
+  <!-- ══ VITRINA ══ -->
+  <section class="band" id="vehiculos">
+    <div class="wrap">
+      <header class="band-head">
+        <p class="eyebrow">Vitrina</p>
+        <h2 class="h2">Vehículos disponibles</h2>
+        <p class="lede">
+          Este es el inventario que tenemos hoy en el patio. Escríbenos por
+          WhatsApp para coordinar una visita, ver más fotos o consultar por
+          financiamiento.
+        </p>
+      </header>
+
+      <div class="filters" id="filters" role="group" aria-label="Filtrar por tipo de vehículo">
+        <button class="chip is-on" data-filter="todos">Todos</button>
+        <button class="chip" data-filter="sedan">Sedán</button>
+        <button class="chip" data-filter="suv">SUV</button>
+        <button class="chip" data-filter="camioneta">Camioneta</button>
+        <button class="chip" data-filter="hatchback">Hatchback</button>
       </div>
 
-      <div class="vehicle-grid" id="vehicleGrid" aria-live="polite"></div>
+      <div class="grid" id="grid" aria-live="polite"></div>
 
-      <p class="empty-state" id="emptyState" hidden>
-        No tenemos vehículos de este tipo en este momento. Escríbenos y te
-        avisamos cuando ingrese uno.
+      <p class="empty" id="empty" hidden>
+        No hay vehículos de este tipo en el patio ahora mismo. Escríbenos y te
+        avisamos apenas ingrese uno.
       </p>
     </div>
   </section>
 
-  <!-- POR QUÉ ROCAR -->
-  <section class="section section-alt" id="por-que">
-    <div class="section-inner">
-      <p class="eyebrow">Por qué ROCAR</p>
-      <h2 class="section-title">Comprar y vender, sin sobresaltos</h2>
+  <!-- ══ CÓMO FUNCIONA — dos secuencias reales ══ -->
+  <section class="band band-soft" id="proceso">
+    <div class="wrap">
+      <header class="band-head">
+        <p class="eyebrow">Cómo funciona</p>
+        <h2 class="h2">Comprar o vender, paso&nbsp;a&nbsp;paso</h2>
+      </header>
 
-      <div class="benefits-grid">
-        <article class="benefit">
-          <span class="benefit-icon" aria-hidden="true">
-            <svg viewBox="0 0 48 48"><path d="M24 6 8 12v10c0 12 8 18 16 20 8-2 16-8 16-20V12L24 6Z" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/><path d="M17 24l5 5 10-11" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </span>
-          <h3>Tasación justa</h3>
-          <p>Revisamos tu vehículo y te damos un precio real de mercado, sin letra chica.</p>
+      <div class="tracks">
+        <article class="track">
+          <h3 class="track-title">Si vienes a comprar</h3>
+          <ol class="steps">
+            <li>
+              <h4>Ven a verlo</h4>
+              <p>Estamos en 1 Norte 1678. Puedes revisar el auto, probarlo y preguntar todo lo que necesites.</p>
+            </li>
+            <li>
+              <h4>Llévalo a tu mecánico</h4>
+              <p>Si quieres una segunda opinión, no hay problema: puedes hacerlo revisar antes de decidir.</p>
+            </li>
+            <li>
+              <h4>Nos hacemos cargo del papeleo</h4>
+              <p>Transferencia y documentos listos para que salgas manejando a tu nombre.</p>
+            </li>
+          </ol>
         </article>
 
-        <article class="benefit">
-          <span class="benefit-icon" aria-hidden="true">
-            <svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="17" fill="none" stroke="currentColor" stroke-width="2.5"/><path d="M24 14v10l7 5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </span>
-          <h3>Revisión mecánica</h3>
-          <p>Cada auto que vendemos pasa por una revisión previa antes de salir del local.</p>
-        </article>
-
-        <article class="benefit">
-          <span class="benefit-icon" aria-hidden="true">
-            <svg viewBox="0 0 48 48"><rect x="7" y="12" width="34" height="24" rx="3" fill="none" stroke="currentColor" stroke-width="2.5"/><path d="M7 19h34" stroke="currentColor" stroke-width="2.5"/><path d="M13 27h10" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>
-          </span>
-          <h3>Trámites sin vueltas</h3>
-          <p>Te acompañamos en la transferencia y el papeleo, de principio a fin.</p>
-        </article>
-
-        <article class="benefit">
-          <span class="benefit-icon" aria-hidden="true">
-            <svg viewBox="0 0 48 48"><path d="M24 42S8 32 8 20a9 9 0 0 1 16-6 9 9 0 0 1 16 6c0 12-16 22-16 22Z" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/></svg>
-          </span>
-          <h3>Atención de toda la vida</h3>
-          <p>Somos parte de Talca desde 1986. Muchos clientes ya son la segunda generación.</p>
+        <article class="track">
+          <h3 class="track-title">Si vienes a vender</h3>
+          <ol class="steps">
+            <li>
+              <h4>Tráelo y lo tasamos</h4>
+              <p>Lo revisamos en el momento y te decimos cuánto vale de verdad en el mercado de hoy.</p>
+            </li>
+            <li>
+              <h4>Te hacemos una oferta</h4>
+              <p>Sin compromiso. Si prefieres, también podemos dejarlo en consignación y venderlo por ti.</p>
+            </li>
+            <li>
+              <h4>Cerramos y te pagamos</h4>
+              <p>Firmamos la transferencia y recibes tu pago. Sin vueltas ni trámites que queden pendientes.</p>
+            </li>
+          </ol>
         </article>
       </div>
     </div>
   </section>
 
-  <!-- HISTORIA -->
-  <section class="section section-dark" id="historia">
-    <div class="section-inner">
-      <p class="eyebrow eyebrow-light">Nuestra historia</p>
-      <h2 class="section-title section-title-light">Cuatro décadas construidas sobre confianza</h2>
+  <!-- ══ HISTORIA — el archivo, a tamaño completo ══ -->
+  <section class="band band-deep" id="historia">
+    <div class="wrap">
+      <header class="band-head">
+        <p class="eyebrow eyebrow-on-deep">Nuestra historia</p>
+        <h2 class="h2 h2-on-deep">Cuarenta años en la misma dirección</h2>
+      </header>
 
-      <div class="historia-layout">
-        <div class="historia-text">
-          <p>
-            ROCAR nació en 1986 de la mano de <strong>Héctor Rodrigo Cáceres
-            Cornejo</strong>, en el mismo terreno de 1 Norte 1678 donde
-            seguimos atendiendo hoy. Lo que comenzó como un pequeño patio de
-            autos se convirtió, con los años, en la compraventa de
-            automóviles más antigua de Talca.
-          </p>
-          <p>
-            Durante más de 40 años hemos visto pasar generaciones de
-            familias talquinas: personas que compraron su primer auto con
-            nosotros y que, años después, volvieron para vender ese mismo
-            auto o comprar el siguiente. Ese es el negocio que aprendimos de
-            don Héctor Rodrigo: cada venta es, primero que todo, un trato
-            entre personas que se conocen y confían.
-          </p>
-          <p>
-            Hoy seguimos en el mismo lugar, con la misma forma de trabajar:
-            cara a cara, con honestidad y con el tiempo de por medio como
-            garantía.
-          </p>
-        </div>
-
-        <div class="historia-gallery">
-          <figure class="photo-print photo-print--1">
-            <img src="images/rocar-3-opt.jpg" alt="Fachada histórica del local de ROCAR en Talca, con letrero de Compra y Venta de automóviles" loading="lazy" width="1600" height="1200" />
-            <figcaption>Nuestro local en 1 Norte, punto de encuentro de compradores y vendedores por generaciones.</figcaption>
-          </figure>
-          <figure class="photo-print photo-print--2">
-            <img src="images/rocar-2-opt.jpg" alt="Fundador de ROCAR en el patio del local, junto a una camioneta en venta" loading="lazy" width="1600" height="1200" />
-            <figcaption>Don Héctor Rodrigo Cáceres Cornejo, fundador de ROCAR, en el patio del local.</figcaption>
-          </figure>
-          <figure class="photo-print photo-print--3">
-            <img src="images/rocar-1-opt.jpg" alt="Fotografía histórica de los primeros años de ROCAR junto a un vehículo clásico" loading="lazy" width="1600" height="1200" />
-            <figcaption>Los primeros años del negocio, cuando cada auto vendido era una historia de confianza.</figcaption>
-          </figure>
-        </div>
+      <div class="story">
+        <p class="story-lead">
+          ROCAR abrió en 1986. Héctor Rodrigo Cáceres Cornejo empezó comprando
+          y vendiendo autos en un patio de 1 Norte 1678, la misma dirección
+          donde seguimos atendiendo hoy.
+        </p>
       </div>
+
+      <figure class="plate">
+        <img
+          src="images/rocar-1-1100.jpg"
+          srcset="images/rocar-1-1100.jpg 1100w, images/rocar-1-1900.jpg 1900w"
+          sizes="(min-width: 1060px) 1000px, 92vw"
+          width="1900" height="1327" loading="lazy"
+          alt="Fotografía de los primeros años del negocio: tres hombres posan junto a un automóvil azul en el patio del local." />
+        <figcaption>Los primeros años del negocio en Talca.</figcaption>
+      </figure>
+
+      <div class="story">
+        <p>
+          Cuarenta años después, es la compraventa de automóviles más antigua
+          de Talca. En ese tiempo pasaron por aquí generaciones de familias
+          talquinas: gente que compró su primer auto con nosotros y volvió
+          años más tarde a venderlo, o a buscar el siguiente para un hijo.
+        </p>
+      </div>
+
+      <figure class="plate">
+        <img
+          src="images/rocar-2-1100.jpg"
+          srcset="images/rocar-2-1100.jpg 1100w, images/rocar-2-1900.jpg 1900w"
+          sizes="(min-width: 1060px) 1000px, 92vw"
+          width="1900" height="1427" loading="lazy"
+          alt="Fotografía antigua del patio techado del local, con una camioneta y otros vehículos en venta." />
+        <figcaption>En el patio techado, entre los vehículos en venta.</figcaption>
+      </figure>
+
+      <div class="story">
+        <p>
+          El negocio no cambió tanto. Seguimos en el mismo lugar, atendiendo
+          cara a cara, y el tiempo es la garantía que podemos ofrecer:
+          cuarenta años en la misma dirección son difíciles de improvisar.
+        </p>
+      </div>
+
+      <figure class="plate">
+        <img
+          src="images/rocar-3-1100.jpg"
+          srcset="images/rocar-3-1100.jpg 1100w, images/rocar-3-1900.jpg 1900w"
+          sizes="(min-width: 1060px) 1000px, 92vw"
+          width="1900" height="1317" loading="lazy"
+          alt="El frontis del local con el letrero AUTOMÓVILES pintado en rojo sobre la chapa, la reja verde y las camionetas en el patio." />
+        <figcaption>El frontis en 1 Norte: el letrero pintado a mano y el patio de siempre.</figcaption>
+      </figure>
     </div>
   </section>
 
-  <!-- UBICACIÓN Y CONTACTO -->
-  <section class="section" id="contacto">
-    <div class="section-inner">
-      <p class="eyebrow">Ubicación y contacto</p>
-      <h2 class="section-title">Visítanos en Talca</h2>
+  <!-- ══ VISÍTANOS ══ -->
+  <section class="band" id="contacto">
+    <div class="wrap">
+      <header class="band-head">
+        <p class="eyebrow">Visítanos</p>
+        <h2 class="h2">Estamos en 1 Norte 1678, Talca</h2>
+      </header>
 
-      <div class="contact-layout">
-        <div class="contact-info">
-          <ul class="info-list">
-            <li>
-              <span class="info-label">Dirección</span>
-              <span class="info-value">1 Norte 1678, Talca, Región del Maule</span>
-            </li>
-            <li>
-              <span class="info-label">WhatsApp / Teléfono</span>
-              <span class="info-value" id="phoneDisplay">+56 9 0000 0000</span>
-            </li>
-            <li>
-              <span class="info-label">Horario</span>
-              <span class="info-value">Lunes a sábado, 10:00 a 19:00 h</span>
-            </li>
-          </ul>
+      <div class="contact">
+        <div class="contact-col">
+          <dl class="facts">
+            <div>
+              <dt>Dirección</dt>
+              <dd>1 Norte 1678, Talca, Región del Maule</dd>
+            </div>
+            <div>
+              <dt>WhatsApp y teléfono</dt>
+              <dd id="fono">+56 9 0000 0000</dd>
+            </div>
+            <div>
+              <dt>Horario</dt>
+              <dd>Lunes a sábado, 10:00 a 19:00</dd>
+            </div>
+          </dl>
 
-          <div class="contact-buttons">
-            <a href="#" class="btn btn-whatsapp whatsapp-link" data-whatsapp-generic target="_blank" rel="noopener">Escribir por WhatsApp</a>
-            <a href="#" class="btn btn-outline" id="callLink">Llamar ahora</a>
+          <div class="contact-actions">
+            <a class="btn btn-wa" data-wa target="_blank" rel="noopener">Escribir por WhatsApp</a>
+            <a class="btn btn-ghost" id="llamar">Llamar ahora</a>
           </div>
 
-          <form class="quick-form" id="quickForm">
-            <label for="qfNombre">Tu nombre</label>
-            <input type="text" id="qfNombre" name="nombre" placeholder="Nombre" required />
-
-            <label for="qfMensaje">¿En qué te podemos ayudar?</label>
-            <textarea id="qfMensaje" name="mensaje" rows="3" placeholder="Ej: Quiero vender mi auto, ¿lo pueden tasar?" required></textarea>
-
-            <button type="submit" class="btn btn-primary">Enviar por WhatsApp</button>
-            <p class="form-note">Al enviar, se abrirá WhatsApp con tu mensaje ya redactado.</p>
+          <form class="form" id="form">
+            <h3 class="form-title">O déjanos tu consulta</h3>
+            <div class="field">
+              <label for="f-nombre">Tu nombre</label>
+              <input id="f-nombre" name="nombre" type="text" autocomplete="name" required />
+            </div>
+            <div class="field">
+              <label for="f-msg">¿En qué te podemos ayudar?</label>
+              <textarea id="f-msg" name="mensaje" rows="3" required
+                placeholder="Ej: quiero vender mi auto, ¿lo pueden tasar?"></textarea>
+            </div>
+            <button type="submit" class="btn btn-solid">Enviar por WhatsApp</button>
+            <p class="form-note">Se abre WhatsApp con tu mensaje ya escrito. Lo revisas antes de enviarlo.</p>
           </form>
         </div>
 
-        <div class="map-frame">
+        <div class="map">
           <iframe
-            title="Mapa de ubicación de ROCAR en 1 Norte 1678, Talca"
+            title="Mapa con la ubicación de ROCAR en 1 Norte 1678, Talca"
             src="https://www.google.com/maps?q=1+Norte+1678,+Talca,+Chile&output=embed"
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade">
-          </iframe>
+            loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
       </div>
     </div>
@@ -252,26 +281,25 @@
 
 </main>
 
-<footer class="site-footer">
-  <div class="footer-inner">
-    <div class="footer-brand">
-      <span class="brand-mark">ROCAR</span>
-      <p>La compraventa de automóviles más antigua de Talca.</p>
+<footer class="foot">
+  <div class="wrap foot-in">
+    <div>
+      <p class="logo logo-foot">ROCAR</p>
+      <p class="foot-tag">Compraventa de automóviles.<br />La más antigua de Talca.</p>
     </div>
-
-    <nav class="footer-nav" aria-label="Enlaces del pie de página">
+    <nav class="foot-nav" aria-label="Pie de página">
       <a href="#vehiculos">Vehículos</a>
-      <a href="#por-que">Por qué ROCAR</a>
+      <a href="#proceso">Cómo funciona</a>
       <a href="#historia">Historia</a>
-      <a href="#contacto">Ubicación y contacto</a>
+      <a href="#contacto">Visítanos</a>
     </nav>
-
-    <div class="footer-info">
-      <p>1 Norte 1678, Talca, Región del Maule</p>
-      <p id="footerPhone">+56 9 0000 0000</p>
+    <div class="foot-info">
+      <p>1 Norte 1678, Talca</p>
+      <p id="fono-foot">+56 9 0000 0000</p>
+      <p>Lunes a sábado, 10:00 a 19:00</p>
     </div>
   </div>
-  <p class="footer-copy">© <span id="year"></span> ROCAR — Compraventa de Automóviles. Desde 1986.</p>
+  <p class="wrap foot-legal">© <span id="anio"></span> ROCAR · Compraventa de automóviles · Talca, Chile</p>
 </footer>
 
 <script src="data/vehiculos-data.js"></script>
